@@ -1,43 +1,44 @@
-# VPM Package Listing Template
+# VPM パッケージリストテンプレート
 
-Starter for making your own Package Listings, including automation for building and publishing them.
+独自のパッケージリストを作成するためのスターターです。
 
-Once you're all set up, you'll be able to update the [`source.json`](source.json) file, and generate a listing which works in the VPM for delivering updates for all the listed packages.
+すべてのセットアップが完了したら、[`source.json`](source.json) ファイルを更新し、リストアップされたすべてのパッケージのアップデートを配信するための VPM で動作するリストを生成できるようになります。
 
-## ▶ Getting Started
+## ▶ はじめに
 
-* Press [![Use This Template](https://user-images.githubusercontent.com/737888/185467681-e5fdb099-d99f-454b-8d9e-0760e5a6e588.png)](https://github.com/vrchat-community/template-package-listing/generate)
-to start a new GitHub project based on this template, and follow the directions there. 
-  * Choose a fitting repository name and description.
-  * Set the visibility to 'Public'. You can also choose 'Private' and change it later.
-  * You don't need to select 'Include all branches.'
-* Edit this project on GitHub in your web browser, or clone it repository locally using Git.
-  * If you're unfamiliar with Git and GitHub, [visit GitHub's documentation](https://docs.github.com/en/get-started/quickstart/).
-  
-## Setting up the Automation
+- [![このテンプレートを使う](https://user-images.githubusercontent.com/737888/185467681-e5fdb099-d99f-454b-8d9e-0760e5a6e588.png)](https://github.com/vrchat-community/template-package-listing/generate) を押してください。
+  をクリックして、このテンプレートに基づいた新しい GitHub プロジェクトを立ち上げ、その指示に従ってください。
+  - 適切なリポジトリ名と説明を選んでください。
+  - 可視性を 'Public' に設定します。'Private'を選択し、後で変更することもできます。
+  - 「すべてのブランチを含める」を選択する必要はありません。
+- ウェブブラウザで GitHub のプロジェクトを編集するか、Git を使ってローカルにリポジトリをクローンしてください。
+  - Git や GitHub に詳しくない場合は、[GitHub のドキュメントを参照](https://docs.github.com/en/get-started/quickstart/)。
 
-You'll need to edit some of the files in this template, starting with [`source.json`](source.json):
-- Fill out general information about your listing, such as the [`name`](source.json#L2), [`id`](source.json#L3), [`author`](source.json#L5), [`description`](source.json#L10), etc.
-- Make sure to update the ["url"](source.json#L4) field on line 4, replacing "vrchat-community" with your GitHub username, and "template-package-listing" with your repo name. This is the link that will be used to download your listing once it's published by GitHub. For example, the user "thupper" who made a repo called "thupper-listing" would update the url to "https://thupper.github.io/thupper-listing/index.json".
-- Update the "url" within ["infoLink"](source.json#L11) (on line 11) with the url of this new repo you've created.
-- If you'd like to include packages hosted on GitHub, specify them in [`githubRepos`](source.json#L16).
-- If you'd like to include packages hosted elsewhere as a `.zip` file, specify them in [`packages`](source.json#L19).
-  - You can safely remove either [`githubRepos`](source.json#L16) or [`packages`](source.json#L19) if you're not using them. 
-- Finally, go to the "Settings" page for your repo, then choose "Pages", and look for the heading "Build and deployment". Change the "Source" dropdown from "Deploy from a branch" to "GitHub Actions".
+## オートメーションのセットアップ
 
-## 📃 Rebuilding the Listing
+このテンプレートでは、[`source.json`](source.json)から始まるいくつかのファイルを編集する必要があります：
 
-Whenever you make a change to the `main` branch, or when you trigger it manually, the 'Build Repo Listing' action will make a new index of all the releases available and publish them as a website hosted fore free on GitHub Pages. This listing can be used by the VPM to keep your package up to date, and the generated index page can serve as a simple landing page with info for your package. The URL for your package will be in the format https://username.github.io/repo-name.
+- [`name`](source.json#L2)、[`id`](source.json#L3)、[`author`](source.json#L5)、[`description`](source.json#L10)などのリスティングに関する一般的な情報を入力してください。
+- 4 行目の[「url」](source.json#L4)フィールドを更新し、「vrchat-community」をあなたの GitHub ユーザー名に、「template-package-listing」をあなたのリポジトリ名に置き換えてください。このリンクは、GitHub で公開されたときにあなたのリストをダウンロードするために使われます。例えば、「thupper-listing」 というリポジトリを作ったユーザー 「thupper」 は、url を 「https://thupper.github.io/thupper-listing/index.json」 に更新します。
+- [「infoLink」](source.json#L11) (11 行目) 内の "url" を、新しく作成したリポジトリの url で更新します。
+- GitHub でホストされているパッケージを含めたい場合は、[`githubRepos`](source.json#L16)で指定します。
+- 他の場所でホストされているパッケージを `.zip` ファイルとしてインクルードしたい場合は、[`packages`](source.json#L19) に指定します。
+  - [`githubRepos`](source.json#L16) または [`packages`](source.json#L19) を使用しない場合は、安全に削除することができます。
+- 最後に、リポジトリの 「Settings」 ページに行き、「Pages」 を選択し、「Build and deployment」 という見出しを探します。Source」のドロップダウンを「Deploy from a branch」から「GitHub Actions」に変更します。
 
-## 🏠 Customizing the Landing Page
+## 📃 リストの再構築
 
-The contents of the `Website` directory can be customized to change the appearance of the landing page. Most of the information will be automatically filled in with information from [`source.json`](source.json). Customizing the landing page by hand is not required.
+`main` ブランチに変更を加えるたびに、あるいは手動でトリガーするたびに、'Build Repo Listing' アクションは利用可能なすべてのリリースの新しいインデックスを作成し、GitHub Pages に無料でホストされるウェブサイトとして公開します。このリストは VPM があなたのパッケージを最新の状態に保つために使うことができ、生成されたインデックスページはあなたのパッケージの情報を掲載したシンプルなランディングページとして機能します。あなたのパッケージの URL は `https://username.github.io/repo-name` のような形式になります。
 
-## Technical Stuff
+## 🌎 ランディングページのカスタマイズ
 
-You are welcome to make your own changes to the automation process to make it fit your needs, and you can create Pull Requests if you have some changes you think we should adopt. Here's some more info on the included automation:
+ランディングページの外観を変更するために、`Website`ディレクトリの 内容をカスタマイズすることができます。ほとんどの情報は[`source.json`](source.json)から自動的に入力されます。ランディングページを手作業でカスタマイズする必要はありません。
 
-### Build Listing
-[build-listing.yml](.github/workflows/build-listing.yml)
+## 技術的なこと
 
-This is a composite action which builds a vpm-compatible [Repo Listing](https://vcc.docs.vrchat.com/vpm/repos) based on the items you've added to your [`source.json`](source.json) file. you've created. In order to find all your releases and combine them into a listing, it checks out [another repository](https://github.com/vrchat-community/package-list-action) which has a [Nuke](https://nuke.build/) project which includes the VPM core lib to have access to its types and methods. This project will be expanded to include more functionality in the future - for now, the action just calls its `BuildRepoListing` target, which calls `RebuildHomePage` when it completes. If you wanted to make an action that just rebuilds the home page, you could call that directly instead - just copy the existing call and replace the target names.
+自動化プロセスをあなたのニーズに合うように変更することは歓迎されますし、私たちが採用すべきだと思う変更があれば、Pull Request を作成することもできます。また、採用すべき変更があれば Pull Request を作成することもできます：
+
+### ビルドリスト
+
+[build-listing.yml](.github/workflows/build-listing.yml)これは、あなたが作成した[`source.json`](source.json)ファイルに追加した項目に基づいて、vpm 互換の[Repo Listing](https://vcc.docs.vrchat.com/vpm/repos)をビルドする複合アクションです。
+すべてのリリースを検索してリストにまとめるために、[別のリポジトリ](https://github.com/vrchat-community/package-list-action) をチェックアウトします。このリポジトリには VPM コア lib を含む [Nuke](https://nuke.build/) プロジェクトがあり、その型とメソッドにアクセスできるようになっています。このプロジェクトは将来もっと多くの機能を含むように拡張される予定です ―― 今のところ、アクションは `BuildRepoListing` ターゲットを呼び出すだけで、それが完了すると `RebuildHomePage` を呼び出します。もしホームページを再構築するだけのアクションを作りたかったら、代わりにそれを直接呼び出すことができます - 既存の呼び出しをコピーしてターゲット名を置き換えるだけです。
